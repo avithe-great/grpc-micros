@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = ".;proto";
+package proto;
+
+
+message User {
+	int64 id  = 1;
+	string fname = 2;
+    string city=3;
+	int64 phone = 4;
+    int64   height=6;
+	bool married= 5;
+}
+
+message UserRequest {
+    string id = 1;
+}
+
+message UserResponse {
+    User result =  1;
+}
+
+service UserService {
+    rpc GetList(UserRequest) returns (UserResponse) {};
+} 
